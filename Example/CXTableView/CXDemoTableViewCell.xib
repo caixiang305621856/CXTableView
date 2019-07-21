@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CXDemoTableViewCell" rowHeight="153" id="LfR-n6-QxW" customClass="CXDemoTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="153"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LfR-n6-QxW" id="fhX-1c-JU8">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="152.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xq9-If-FNs">
+                        <rect key="frame" x="164.5" y="61.5" width="46" height="30"/>
+                        <color key="backgroundColor" red="0.99087315797805786" green="0.0022482203785330057" blue="0.47061413526535034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" title="Button"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLu-Nz-eHj">
+                        <rect key="frame" x="24" y="66" width="42" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="vLu-Nz-eHj" firstAttribute="leading" secondItem="fhX-1c-JU8" secondAttribute="leading" constant="24" id="KAY-PH-nHG"/>
+                    <constraint firstItem="xq9-If-FNs" firstAttribute="centerX" secondItem="fhX-1c-JU8" secondAttribute="centerX" id="bOc-gZ-gsM"/>
+                    <constraint firstItem="xq9-If-FNs" firstAttribute="centerY" secondItem="fhX-1c-JU8" secondAttribute="centerY" id="ftE-cO-m4j"/>
+                    <constraint firstItem="vLu-Nz-eHj" firstAttribute="centerY" secondItem="xq9-If-FNs" secondAttribute="centerY" id="iEb-9W-Mpw"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addBtn" destination="xq9-If-FNs" id="C8s-6a-zT2"/>
+                <outlet property="titleLabel" destination="vLu-Nz-eHj" id="glr-5U-0fy"/>
+            </connections>
+            <point key="canvasLocation" x="-7.2000000000000002" y="35.532233883058474"/>
+        </tableViewCell>
+    </objects>
+</document>

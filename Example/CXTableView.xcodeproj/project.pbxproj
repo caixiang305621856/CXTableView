@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A10B2D022E3F84F006DD07A /* CXDemoAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10B2CF22E3F84F006DD07A /* CXDemoAdapter.m */; };
+		5A10B2D322E3FD47006DD07A /* CXDemo1Item.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A10B2D222E3FD47006DD07A /* CXDemo1Item.m */; };
+		5A9DBDE622E310B80070B2A9 /* CXDemoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBDE522E310B80070B2A9 /* CXDemoTableViewCell.m */; };
+		5A9DBDE922E310E20070B2A9 /* CXDemoDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBDE822E310E20070B2A9 /* CXDemoDataSource.m */; };
+		5A9DBDEC22E312EB0070B2A9 /* CXDemoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBDEB22E312EB0070B2A9 /* CXDemoItem.m */; };
+		5A9DBDEF22E317400070B2A9 /* CXDemo1TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBDEE22E317400070B2A9 /* CXDemo1TableViewCell.m */; };
+		5A9DBDF122E321190070B2A9 /* CXDemoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9DBDF022E321190070B2A9 /* CXDemoTableViewCell.xib */; };
+		5A9DBDF322E321640070B2A9 /* CXDemo1TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9DBDF222E321640070B2A9 /* CXDemo1TableViewCell.xib */; };
+		5A9DBDF922E333CC0070B2A9 /* CXDemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBDF822E333CC0070B2A9 /* CXDemoViewController.m */; };
+		5A9DBE0722E33A930070B2A9 /* CXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0022E33A920070B2A9 /* CXTableView.m */; };
+		5A9DBE0822E33A930070B2A9 /* CXTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0122E33A920070B2A9 /* CXTableViewController.m */; };
+		5A9DBE0922E33A930070B2A9 /* CXTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0222E33A920070B2A9 /* CXTableViewDataSource.m */; };
+		5A9DBE0A22E33A930070B2A9 /* CXTableViewSectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0322E33A920070B2A9 /* CXTableViewSectionModel.m */; };
+		5A9DBE0B22E33A930070B2A9 /* CXBaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0422E33A920070B2A9 /* CXBaseTableViewCell.m */; };
+		5A9DBE0E22E374B70070B2A9 /* CXDemo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0D22E374B70070B2A9 /* CXDemo1ViewController.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,9 +52,39 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0041CF04E42827B33AFA4F20 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		0AC224CAAAA4C4E8A73FF372 /* CXTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = CXTableView.podspec; path = ../CXTableView.podspec; sourceTree = "<group>"; };
+		0041CF04E42827B33AFA4F20 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		0AC224CAAAA4C4E8A73FF372 /* CXTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CXTableView.podspec; path = ../CXTableView.podspec; sourceTree = "<group>"; };
 		33D51293F3AF0236BA0DA53C /* Pods_CXTableView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXTableView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A10B2CE22E3F84F006DD07A /* CXDemoAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoAdapter.h; sourceTree = "<group>"; };
+		5A10B2CF22E3F84F006DD07A /* CXDemoAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoAdapter.m; sourceTree = "<group>"; };
+		5A10B2D122E3FD47006DD07A /* CXDemo1Item.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemo1Item.h; sourceTree = "<group>"; };
+		5A10B2D222E3FD47006DD07A /* CXDemo1Item.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemo1Item.m; sourceTree = "<group>"; };
+		5A9DBDE422E310B80070B2A9 /* CXDemoTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoTableViewCell.h; sourceTree = "<group>"; };
+		5A9DBDE522E310B80070B2A9 /* CXDemoTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoTableViewCell.m; sourceTree = "<group>"; };
+		5A9DBDE722E310E20070B2A9 /* CXDemoDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoDataSource.h; sourceTree = "<group>"; };
+		5A9DBDE822E310E20070B2A9 /* CXDemoDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoDataSource.m; sourceTree = "<group>"; };
+		5A9DBDEA22E312EB0070B2A9 /* CXDemoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoItem.h; sourceTree = "<group>"; };
+		5A9DBDEB22E312EB0070B2A9 /* CXDemoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoItem.m; sourceTree = "<group>"; };
+		5A9DBDED22E317400070B2A9 /* CXDemo1TableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemo1TableViewCell.h; sourceTree = "<group>"; };
+		5A9DBDEE22E317400070B2A9 /* CXDemo1TableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemo1TableViewCell.m; sourceTree = "<group>"; };
+		5A9DBDF022E321190070B2A9 /* CXDemoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CXDemoTableViewCell.xib; sourceTree = "<group>"; };
+		5A9DBDF222E321640070B2A9 /* CXDemo1TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CXDemo1TableViewCell.xib; sourceTree = "<group>"; };
+		5A9DBDF722E333CC0070B2A9 /* CXDemoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoViewController.h; sourceTree = "<group>"; };
+		5A9DBDF822E333CC0070B2A9 /* CXDemoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoViewController.m; sourceTree = "<group>"; };
+		5A9DBDFB22E33A920070B2A9 /* CXTableViewDataSourceProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableViewDataSourceProtocol.h; sourceTree = "<group>"; };
+		5A9DBDFC22E33A920070B2A9 /* CXTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableViewController.h; sourceTree = "<group>"; };
+		5A9DBDFD22E33A920070B2A9 /* CXBaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXBaseTableViewCell.h; sourceTree = "<group>"; };
+		5A9DBDFE22E33A920070B2A9 /* CXTableViewSectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableViewSectionModel.h; sourceTree = "<group>"; };
+		5A9DBDFF22E33A920070B2A9 /* CXTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableViewDataSource.h; sourceTree = "<group>"; };
+		5A9DBE0022E33A920070B2A9 /* CXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTableView.m; sourceTree = "<group>"; };
+		5A9DBE0122E33A920070B2A9 /* CXTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTableViewController.m; sourceTree = "<group>"; };
+		5A9DBE0222E33A920070B2A9 /* CXTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTableViewDataSource.m; sourceTree = "<group>"; };
+		5A9DBE0322E33A920070B2A9 /* CXTableViewSectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXTableViewSectionModel.m; sourceTree = "<group>"; };
+		5A9DBE0422E33A920070B2A9 /* CXBaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CXBaseTableViewCell.m; sourceTree = "<group>"; };
+		5A9DBE0522E33A920070B2A9 /* CXTableViewDelegateProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableViewDelegateProtocol.h; sourceTree = "<group>"; };
+		5A9DBE0622E33A920070B2A9 /* CXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CXTableView.h; sourceTree = "<group>"; };
+		5A9DBE0C22E374B70070B2A9 /* CXDemo1ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemo1ViewController.h; sourceTree = "<group>"; };
+		5A9DBE0D22E374B70070B2A9 /* CXDemo1ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemo1ViewController.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* CXTableView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CXTableView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -64,7 +109,7 @@
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		92761CB374DC4B0AFB1FAB8F /* Pods-CXTableView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXTableView_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXTableView_Example/Pods-CXTableView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		9922E56210FD7C41C8C2185C /* Pods-CXTableView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXTableView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CXTableView_Tests/Pods-CXTableView_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		CC5648688817CF7B57A037E4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		CC5648688817CF7B57A037E4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		E5613A326726169D20525ED0 /* Pods-CXTableView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXTableView_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-CXTableView_Example/Pods-CXTableView_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F3E9BD62BABD9E2515AE9420 /* Pods-CXTableView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CXTableView_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CXTableView_Tests/Pods-CXTableView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -106,6 +151,26 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		5A9DBDFA22E33A920070B2A9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5A9DBDFD22E33A920070B2A9 /* CXBaseTableViewCell.h */,
+				5A9DBE0422E33A920070B2A9 /* CXBaseTableViewCell.m */,
+				5A9DBE0622E33A920070B2A9 /* CXTableView.h */,
+				5A9DBE0022E33A920070B2A9 /* CXTableView.m */,
+				5A9DBDFC22E33A920070B2A9 /* CXTableViewController.h */,
+				5A9DBE0122E33A920070B2A9 /* CXTableViewController.m */,
+				5A9DBDFF22E33A920070B2A9 /* CXTableViewDataSource.h */,
+				5A9DBE0222E33A920070B2A9 /* CXTableViewDataSource.m */,
+				5A9DBDFB22E33A920070B2A9 /* CXTableViewDataSourceProtocol.h */,
+				5A9DBE0522E33A920070B2A9 /* CXTableViewDelegateProtocol.h */,
+				5A9DBDFE22E33A920070B2A9 /* CXTableViewSectionModel.h */,
+				5A9DBE0322E33A920070B2A9 /* CXTableViewSectionModel.m */,
+			);
+			name = Classes;
+			path = ../CXTableView/Classes;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -143,11 +208,29 @@
 		6003F593195388D20070C39A /* Example for CXTableView */ = {
 			isa = PBXGroup;
 			children = (
+				5A9DBE0C22E374B70070B2A9 /* CXDemo1ViewController.h */,
+				5A9DBE0D22E374B70070B2A9 /* CXDemo1ViewController.m */,
 				6003F59C195388D20070C39A /* CXAppDelegate.h */,
 				6003F59D195388D20070C39A /* CXAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* CXViewController.h */,
 				6003F5A6195388D20070C39A /* CXViewController.m */,
+				5A9DBDF722E333CC0070B2A9 /* CXDemoViewController.h */,
+				5A9DBDF822E333CC0070B2A9 /* CXDemoViewController.m */,
+				5A9DBDE422E310B80070B2A9 /* CXDemoTableViewCell.h */,
+				5A9DBDE522E310B80070B2A9 /* CXDemoTableViewCell.m */,
+				5A9DBDF022E321190070B2A9 /* CXDemoTableViewCell.xib */,
+				5A9DBDED22E317400070B2A9 /* CXDemo1TableViewCell.h */,
+				5A9DBDEE22E317400070B2A9 /* CXDemo1TableViewCell.m */,
+				5A9DBDF222E321640070B2A9 /* CXDemo1TableViewCell.xib */,
+				5A9DBDE722E310E20070B2A9 /* CXDemoDataSource.h */,
+				5A9DBDE822E310E20070B2A9 /* CXDemoDataSource.m */,
+				5A10B2CE22E3F84F006DD07A /* CXDemoAdapter.h */,
+				5A10B2CF22E3F84F006DD07A /* CXDemoAdapter.m */,
+				5A9DBDEA22E312EB0070B2A9 /* CXDemoItem.h */,
+				5A9DBDEB22E312EB0070B2A9 /* CXDemoItem.m */,
+				5A10B2D122E3FD47006DD07A /* CXDemo1Item.h */,
+				5A10B2D222E3FD47006DD07A /* CXDemo1Item.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -189,6 +272,7 @@
 		60FF7A9C1954A5C5007DD14C /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
+				5A9DBDFA22E33A920070B2A9 /* Classes */,
 				0AC224CAAAA4C4E8A73FF372 /* CXTableView.podspec */,
 				CC5648688817CF7B57A037E4 /* README.md */,
 				0041CF04E42827B33AFA4F20 /* LICENSE */,
@@ -244,7 +328,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = CX;
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = caixiang305621856;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -277,6 +361,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				5A9DBDF322E321640070B2A9 /* CXDemo1TableViewCell.xib in Resources */,
+				5A9DBDF122E321190070B2A9 /* CXDemoTableViewCell.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
@@ -367,9 +453,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A9DBE0822E33A930070B2A9 /* CXTableViewController.m in Sources */,
+				5A9DBDEC22E312EB0070B2A9 /* CXDemoItem.m in Sources */,
+				5A9DBE0E22E374B70070B2A9 /* CXDemo1ViewController.m in Sources */,
+				5A9DBDE922E310E20070B2A9 /* CXDemoDataSource.m in Sources */,
 				6003F59E195388D20070C39A /* CXAppDelegate.m in Sources */,
+				5A9DBE0A22E33A930070B2A9 /* CXTableViewSectionModel.m in Sources */,
+				5A9DBE0722E33A930070B2A9 /* CXTableView.m in Sources */,
 				6003F5A7195388D20070C39A /* CXViewController.m in Sources */,
+				5A10B2D322E3FD47006DD07A /* CXDemo1Item.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				5A9DBDE622E310B80070B2A9 /* CXDemoTableViewCell.m in Sources */,
+				5A10B2D022E3F84F006DD07A /* CXDemoAdapter.m in Sources */,
+				5A9DBDEF22E317400070B2A9 /* CXDemo1TableViewCell.m in Sources */,
+				5A9DBE0B22E33A930070B2A9 /* CXBaseTableViewCell.m in Sources */,
+				5A9DBE0922E33A930070B2A9 /* CXTableViewDataSource.m in Sources */,
+				5A9DBDF922E333CC0070B2A9 /* CXDemoViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,19 +526,32 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -467,18 +579,31 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
