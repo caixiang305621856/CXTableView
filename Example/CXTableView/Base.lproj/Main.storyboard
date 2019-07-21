@@ -37,30 +37,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPI-g6-bgm">
-                                <rect key="frame" x="23" y="114" width="148" height="41"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPI-g6-bgm">
+                                <rect key="frame" x="15" y="94" width="150" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1wQ-Va-rGB"/>
+                                    <constraint firstAttribute="width" constant="150" id="etH-zv-dX5"/>
+                                </constraints>
                                 <state key="normal" title="轻量级tableView"/>
                                 <connections>
                                     <action selector="pushClick:" destination="whP-gf-Uak" eventType="touchUpInside" id="IPc-Ep-MeL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxf-vM-315">
-                                <rect key="frame" x="56" y="185" width="46" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fxf-vM-315">
+                                <rect key="frame" x="15" y="168" width="150" height="44"/>
+                                <state key="normal" title="传统UTableView"/>
                                 <connections>
                                     <action selector="pushClick2:" destination="tc2-Qw-aMS" eventType="touchUpInside" id="hXh-Hy-XLe"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="LPI-g6-bgm" firstAttribute="leading" secondItem="TpU-gO-2f1" secondAttribute="leading" constant="15" id="CFO-sD-X1l"/>
+                            <constraint firstItem="Fxf-vM-315" firstAttribute="height" secondItem="LPI-g6-bgm" secondAttribute="height" id="E7Z-AA-7MC"/>
+                            <constraint firstItem="Fxf-vM-315" firstAttribute="width" secondItem="LPI-g6-bgm" secondAttribute="width" id="M0p-pF-Zi8"/>
+                            <constraint firstItem="Fxf-vM-315" firstAttribute="leading" secondItem="LPI-g6-bgm" secondAttribute="leading" id="dhx-np-jcs"/>
+                            <constraint firstItem="Fxf-vM-315" firstAttribute="top" secondItem="LPI-g6-bgm" secondAttribute="bottom" constant="30" id="sdb-dl-OXt"/>
+                            <constraint firstItem="LPI-g6-bgm" firstAttribute="top" secondItem="uEw-UM-LJ8" secondAttribute="bottom" constant="30" id="wJB-6H-0fy"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="aK5-j4-TfG"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.80000000000001" y="432.23388305847078"/>
+            <point key="canvasLocation" x="305" y="484"/>
         </scene>
     </scenes>
 </document>
