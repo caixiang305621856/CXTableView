@@ -1,6 +1,6 @@
 {
   "name": "CXTableView",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "UITableView轻量级封装",
   "description": "TODO: Add long description of the pod here.",
   "homepage": "https://github.com/caixiang305621856/CXTableView",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/caixiang305621856/CXTableView.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "platforms": {
     "ios": "8.0"

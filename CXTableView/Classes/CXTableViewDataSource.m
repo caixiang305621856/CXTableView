@@ -76,7 +76,6 @@
     CXBaseTableViewCell* cell = (CXBaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:className];
     if (!cell) {
         cell = (CXBaseTableViewCell *)[self registerTableView:tableView cellClassForObject:object];
-        NSLog(@"%zd",indexPath.row);
     }
     return cell;
 }

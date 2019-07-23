@@ -22,6 +22,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)didSelectObject:(id)object atIndexPath:(NSIndexPath*)indexPath;
 
+/**
+ 空白占位
+
+ @return 空白占位图
+ */
+- (UIView *)registerEmptyView;
+
+/**
+ 下拉刷新触发的方法
+ */
+- (void)pullDownToRefresh;
+
+/**
+ 上拉加载触发的方法
+ */
+- (void)pullUpToRefresh;
+
 @end
 
 NS_ASSUME_NONNULL_END

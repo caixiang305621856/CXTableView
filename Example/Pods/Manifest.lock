@@ -1,5 +1,5 @@
 PODS:
-  - CXTableView (0.1.0)
+  - CXTableView (0.1.1)
 
 DEPENDENCIES:
   - CXTableView (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  CXTableView: 56f051a2c4cb88fab9f7ed4bd8de1c855fb9715f
+  CXTableView: eebf2a8353864332898d34bf4068dbcc011f60ee
 
 PODFILE CHECKSUM: 9d490fb8b1d193b768def054d13f6ba9673a81d6
 

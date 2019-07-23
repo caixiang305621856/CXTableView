@@ -13,6 +13,7 @@
 @end
 
 @implementation CXTableViewController
+
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super init];
     if(self) {
@@ -36,6 +37,7 @@
 - (void)createTableView {
     if (!self.tableView) {
         self.tableView = [[CXTableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
+        self.tableView.contentInset = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height + 44.0f, 0, 0, 0);
         self.tableView.cxdelegate = self;
         self.tableView.cxdataSource = self.tableViewDataSource;
         self.tableView.tableFooterView = [UIView new];

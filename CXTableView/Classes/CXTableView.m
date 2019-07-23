@@ -24,8 +24,58 @@
         self.estimatedRowHeight = 0;
         self.estimatedSectionHeaderHeight = 0;
         self.estimatedSectionFooterHeight = 0;
+        self.isNeedPullDownToRefresh = NO;
+        self.isNeedPullUpToRefresh = NO;
+#ifdef __IPHONE_11_0
+        if (@available(iOS 11.0, *)) {
+            [self setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+        }
+#endif
     }
     return self;
+}
+
+-(void)setIsNeedPullDownToRefresh:(BOOL)isNeedPullDownToRefresh {
+    if (_isNeedPullDownToRefresh == isNeedPullDownToRefresh) {
+        return;
+    }
+
+    _isNeedPullDownToRefresh = isNeedPullDownToRefresh;
+    __block typeof(self) weakSelf = self;
+    if (_isNeedPullDownToRefresh) {
+        [self addPullToRefreshWithActionHandler:^{
+            if ([weakSelf.cxdelegate respondsToSelector:@selector(pullDownToRefresh)]) {
+                [weakSelf.cxdelegate pullDownToRefresh];
+            }
+        }];
+        [self.pullToRefreshView setTitle:@"松开刷新" forState:SVPullToRefreshStateTriggered];
+        [self.pullToRefreshView setTitle:@"下拉刷新" forState:SVPullToRefreshStateStopped];
+        [self.pullToRefreshView setTitle:@"正在加载" forState:SVPullToRefreshStateLoading];
+    }
+}
+
+- (void)setIsNeedPullUpToRefresh:(BOOL)isNeedPullUpToRefresh {
+    if (_isNeedPullUpToRefresh == isNeedPullUpToRefresh) {
+        return;
+    }
+    _isNeedPullUpToRefresh = isNeedPullUpToRefresh;
+    __block typeof(self) weakSelf = self;
+    if (_isNeedPullUpToRefresh) {
+        [self addInfiniteScrollingWithActionHandler:^{
+            if ([weakSelf.cxdelegate respondsToSelector:@selector(pullUpToRefresh)]) {
+                [weakSelf.cxdelegate pullUpToRefresh];
+            }
+        }];
+    }
+}
+
+- (void)stopRefreshingAnimation {
+    [self.pullToRefreshView stopAnimating];
+    [self.infiniteScrollingView stopAnimating];
+}
+
+- (void)triggerRefreshing {
+    [self.infiniteScrollingView stopAnimating];
 }
 
 #pragma mark - UITableViewDelegate
