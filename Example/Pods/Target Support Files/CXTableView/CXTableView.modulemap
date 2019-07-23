@@ -1,0 +1,6 @@
+framework module CXTableView {
+  umbrella header "CXTableView-umbrella.h"
+
+  export *
+  module * { export * }
+}

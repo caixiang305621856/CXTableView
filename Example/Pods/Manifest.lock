@@ -1,0 +1,16 @@
+PODS:
+  - CXTableView (0.1.0)
+
+DEPENDENCIES:
+  - CXTableView (from `../`)
+
+EXTERNAL SOURCES:
+  CXTableView:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  CXTableView: 56f051a2c4cb88fab9f7ed4bd8de1c855fb9715f
+
+PODFILE CHECKSUM: 9d490fb8b1d193b768def054d13f6ba9673a81d6
+
+COCOAPODS: 1.5.3

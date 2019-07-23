@@ -53,7 +53,7 @@
 
 /* Begin PBXFileReference section */
 		0041CF04E42827B33AFA4F20 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		0AC224CAAAA4C4E8A73FF372 /* CXTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CXTableView.podspec; path = ../CXTableView.podspec; sourceTree = "<group>"; };
+		0AC224CAAAA4C4E8A73FF372 /* CXTableView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CXTableView.podspec; path = ../CXTableView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		33D51293F3AF0236BA0DA53C /* Pods_CXTableView_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CXTableView_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A10B2CE22E3F84F006DD07A /* CXDemoAdapter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXDemoAdapter.h; sourceTree = "<group>"; };
 		5A10B2CF22E3F84F006DD07A /* CXDemoAdapter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXDemoAdapter.m; sourceTree = "<group>"; };
@@ -331,6 +331,9 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = caixiang305621856;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = SAD9GVSU92;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -622,6 +625,7 @@
 			baseConfigurationReference = 92761CB374DC4B0AFB1FAB8F /* Pods-CXTableView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SAD9GVSU92;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CXTableView/CXTableView-Prefix.pch";
 				INFOPLIST_FILE = "CXTableView/CXTableView-Info.plist";
@@ -638,6 +642,7 @@
 			baseConfigurationReference = E5613A326726169D20525ED0 /* Pods-CXTableView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SAD9GVSU92;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CXTableView/CXTableView-Prefix.pch";
 				INFOPLIST_FILE = "CXTableView/CXTableView-Info.plist";
