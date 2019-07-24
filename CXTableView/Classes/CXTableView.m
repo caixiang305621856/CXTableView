@@ -27,7 +27,6 @@
         self.isNeedPullDownToRefresh = NO;
         self.isNeedPullUpToRefresh = NO;
         self.autoPullDownToRefresh = NO;
-        self.loadCompleted = YES;
 #ifdef __IPHONE_11_0
         if (@available(iOS 11.0, *)) {
             [self setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
