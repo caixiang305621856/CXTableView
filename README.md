@@ -6,8 +6,7 @@
 
 # 项目中`MVC`架构存在的问题
 
-## 效果预览
-![CXTableView.gif](https://upload-images.jianshu.io/upload_images/1767433-bb53ccfd3ea336e1.gif?imageMogr2/auto-orient/strip%7CimageView2/2/w/411/format/webp)
+![效果](https://upload-images.jianshu.io/upload_images/1767433-bb53ccfd3ea336e1.gif?imageMogr2/auto-orient/strip)
 
 ## Installation
 
