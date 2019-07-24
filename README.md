@@ -1,18 +1,17 @@
 # CXTableView
-
-[![CI Status](https://img.shields.io/travis/caixiang305621856/CXTableView.svg?style=flat)](https://travis-ci.org/caixiang305621856/CXTableView)
-[![Version](https://img.shields.io/cocoapods/v/CXTableView.svg?style=flat)](https://cocoapods.org/pods/CXTableView)
-[![License](https://img.shields.io/cocoapods/l/CXTableView.svg?style=flat)](https://cocoapods.org/pods/CXTableView)
-[![Platform](https://img.shields.io/cocoapods/p/CXTableView.svg?style=flat)](https://cocoapods.org/pods/CXTableView)
+[CI Status](https://travis-ci.org/caixiang305621856/CXTableView)
+[Version](https://cocoapods.org/pods/CXTableView)
+[License](https://cocoapods.org/pods/CXTableView)
+[Platform](https://cocoapods.org/pods/CXTableView)
 
 # 项目中`MVC`架构存在的问题
 
 ## 问题阐述
 
-- VC过于臃肿 业务稍微复杂点就代码量`1000+`
-- View与Model之间耦合性太强
-- bug不易定位
-- 业务更改维护成本很高
+* VC过于臃肿 业务稍微复杂点就代码量`1000+`
+* View与Model之间耦合性太强
+* bug不易定位
+* 业务更改维护成本很高
 
 基于这些问题我们就以一个`UITableView`的列表来进行阐述首先要弄明白 `MVC` 的核心：控制器（以下简称 C）负责模型（以下简称 M）和视图（以下简称 V）的交互。
 
@@ -30,8 +29,7 @@
 ```objc
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section;
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
-```
-### Delegate
+```### Delegate
 这里包含一些点击代理，高度返回以及一系列的头部尾部视图的配置，以及`cell`绘制UI的操作
 ```objc
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath;
@@ -41,7 +39,6 @@
 ```
 
 ## 进阶版本
-
 首先的思路是单独把数据源方法抽离出去，单独实现
 这里我打算用到`一个遵循UITableViewDataSource的协议`和一个`单独的数据源类`(需要遵循自定义的协议)来实现
 结合前面数遇见的传统`DataSource`问题我们可以思考下这个协议api应该怎么设计
@@ -134,7 +131,6 @@ NSString *className = [NSString stringWithUTF8String:class_getName(cellClass)];
 CXBaseTableViewCell* cell = (CXBaseTableViewCell*)[tableView dequeueReusableCellWithIdentifier:className];
 if (!cell) {
 cell = (CXBaseTableViewCell *)[self registerTableView:tableView cellClassForObject:object];
-NSLog(@"%zd",indexPath.row);
 }
 return cell;
 }
@@ -170,7 +166,6 @@ return self.sections ? self.sections.count : 0;
 @end
 ```
 
-
 ```objc
 //.m
 #pragma mark - UITableViewDelegate
@@ -198,23 +193,22 @@ id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-//给cell 绑定数据
 id<CXTableViewDataSourceProtocol> dataSource = (id<CXTableViewDataSourceProtocol>)self.dataSource;
 id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
+//给cell 绑定数据
 [(CXBaseTableViewCell *)cell setItem:object];
-//因为CXTableViewDataSourceProtocol 是继承UITableViewDelegate 的 所有这里可以做一层中转
 if ([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]) {
 [self.cxdelegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
 }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0) {
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
 if([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)]) {
 [self.cxdelegate tableView:tableView willDisplayHeaderView:view forSection:section];
 }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0) {
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
 if([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)]) {
 [self.cxdelegate tableView:tableView willDisplayFooterView:view forSection:section];
 }
@@ -222,13 +216,6 @@ if([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayFooterView
 
 // 后续还可以继续添加代理 或者自己定义子类去实现 中转传递
 
-#pragma mark - set&get
-- (void)setCxdataSource:(id<CXTableViewDataSourceProtocol>)cxdataSource {
-if(_cxdataSource != cxdataSource) {
-_cxdataSource = cxdataSource;
-self.dataSource = cxdataSource;
-}
-}
 ```
 
 另外给cell 绑定数据的逻辑我放在了`- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath` 方法里，而并没有放在`- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath` 方法中
@@ -246,10 +233,14 @@ self.dataSource = cxdataSource;
 基于使用层面的考虑， 我们实现一个UIViewController的子类，并且把数据源和代理封装到 C 中
 
 ```objc
+@class CXTableViewDataSource;
+NS_ASSUME_NONNULL_BEGIN
 @protocol CXTableViewControllerDelegate <NSObject>
 
 @required
-- (void)configDataSource;
+- (void)configCXDataSource;
+@optional
+- (void)configCXDelegate;
 @end
 
 @interface CXTableViewController : UIViewController<CXTableViewDelegateProtocol,CXTableViewControllerDelegate>
@@ -263,6 +254,7 @@ self.dataSource = cxdataSource;
 - (instancetype)initWithStyle:(UITableViewStyle)style;
 
 @end
+NS_ASSUME_NONNULL_END
 ```
 
 用户使用只要做几件事就行
@@ -272,21 +264,9 @@ self.dataSource = cxdataSource;
 initWithStyle## 方法。
 
 * 实现`CXTableViewDataSource`的子类
+
 ```objc
 @implementation CXDemoDataSource
-
-//模拟网络请求
-- (void)requestDatas:(void(^)(void))loading
-succeedHandler:(void(^)(NSString * result))succeedHandler
-failHandler:(void(^)(NSString * result))failHandler
-completeHandler:(void(^)(void))completeHandler {
-!loading?:loading();
-dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-[self loadData];
-!succeedHandler?:succeedHandler(@"请求成功");
-!completeHandler?:completeHandler();
-});
-}
 
 - (void)loadData {
 //业务数据处理  这里还可以抽离出一个p层
@@ -330,50 +310,322 @@ return [NSClassFromString(object.cellIdentifier) class];
 - (CGFloat)rowHeightForObject:(id<ContentViewAdapterProtocol>)object {
 return object.rowHeight;
 }
-@end
+
 ```
 
+VC的调用就更简单了 在这里我把 `self.tableView.cxdelegate = self.demoTableViewDelegate`;
 ```objc
+@interface CXDemoViewController ()
+
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView ;
+@property (strong, nonatomic) CXDemoDataSource *demoDataSource;
+@property (strong, nonatomic) CXDemoTableViewDelegate *demoTableViewDelegate;
+
+@end
+
 @implementation CXDemoViewController
 
 - (void)viewDidLoad {
 [super viewDidLoad];
+self.navigationItem.title = @"CXTableView";
+UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"数据加载失败" style:UIBarButtonItemStylePlain target:self action:@selector(failClick)];
+[self.navigationItem setRightBarButtonItem:item];
+self.tableView.isNeedPullUpToRefresh = YES;
+self.tableView.isNeedPullDownToRefresh = YES;
+self.tableView.autoPullDownToRefresh = YES;
 }
 
-//配置
-- (void)configDataSource {
-CXDemoDataSource *demoDataSource = [[CXDemoDataSource alloc] init];
-[self.activityIndicatorView startAnimating];
-[demoDataSource requestDatas:^{
-NSLog(@"正在加载");
-} succeedHandler:^(NSString * _Nonnull result) {
-NSLog(@"加载成功");
+#pragma mark - CXTableViewControllerDelegate
+- (void)configCXDataSource {
+//设置数据源
+self.tableViewDataSource = self.demoDataSource;
+}
+
+- (void)configCXDelegate {
+//设置代理
+self.tableView.cxdelegate = self.demoTableViewDelegate;
+}
+
+#pragma mark - action
+- (void)failClick {
+[self.tableViewDataSource reamoveAllItems];
 [self.tableView reloadData];
-} failHandler:^(NSString * _Nonnull result) {
-} completeHandler:^{
+}
+
+#pragma mark - set&get
+- (CXDemoDataSource *)demoDataSource{
+if (!_demoDataSource) {
+_demoDataSource = [[CXDemoDataSource alloc] init];
+}
+return _demoDataSource;
+}
+
+- (CXDemoTableViewDelegate *)demoTableViewDelegate{
+if (!_demoTableViewDelegate) {
+_demoTableViewDelegate = [[CXDemoTableViewDelegate alloc] init];
+_demoTableViewDelegate.tableView = self.tableView;
+_demoTableViewDelegate.demoDataSource = self.demoDataSource;
+}
+return _demoTableViewDelegate;
+}
+
+@end
+
+```
+
+`self.demoTableViewDelegate` 就比较贴近各自的项目逻辑
+
+到目前为止，我们实现了对`UITableView`以及相关协议、方法的封装，使它更容易使用，避免了很多重复、无意义的代码。
+M 只关心数据
+C 只负责调度 配置
+V 只负责展示数据
+
+`self.demoTableViewDelegate` 可以把一些复杂的业务逻辑，它直接和`CXDemoDataSource`通信 如果业务再复杂点，还可用`self.demoTableViewDelegate`的分类来处理业务分类
+
+## 补充版本
+* 下拉刷新的封装
+
+上次提到过的下拉刷新的封装，以及空白页的处理，因为这些从属性构造来讲，它们应该都属于TableView，所以我这边还是基于`CXTableViewDelegateProtocol`,给它增加协议方法
+
+```objc
+@protocol CXTableViewDelegateProtocol <UITableViewDelegate>
+
+@optional
+
+/**
+cell点击的回调
+
+@param object 对象
+@param indexPath 索引
+*/
+- (void)didSelectObject:(id)object atIndexPath:(NSIndexPath*)indexPath;
+
+/**
+空白占位
+
+@return 空白占位图
+*/
+- (UIView *)registerEmptyView;
+
+/**
+下拉刷新触发的方法
+*/
+- (void)pullDownToRefresh;
+
+/**
+上拉加载触发的方法
+*/
+- (void)pullUpToRefresh;
+
+@end
+```
+
+再给CXTableView 增加4个属性 两个关闭动画的方法
+
+```objc
+@interface CXTableView : UITableView<UITableViewDelegate>
+
+@property (nonatomic, weak) id<CXTableViewDataSourceProtocol> cxdataSource;
+@property (nonatomic, weak) id<CXTableViewDelegateProtocol> cxdelegate;
+
+@property (nonatomic, assign) BOOL isNeedPullDownToRefresh;
+@property (nonatomic, assign) BOOL isNeedPullUpToRefresh;
+@property (assign, nonatomic) BOOL autoPullDownToRefresh;
+@property (assign, nonatomic) BOOL loadCompleted;
+
+- (void)stopRefreshingAnimation;
+- (void)triggerRefreshing;
+
+@end
+```
+
+这边下拉刷新控件我选择的是`SVPullToRefresh`比较轻量级,其中内部有两个BUG,在源码层级上给它做了修改
+
+```objc
+#import "UIScrollView+SVPullToRefresh.h"
+- (void)startAnimating{
+switch (self.position) {
+case SVPullToRefreshPositionTop:
+//bug 修复 设置了偏移量后 不能自动刷新的问题
+if(fequalzero(self.scrollView.contentOffset.y) + self.originalTopInset) {
+[self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, - self.frame.size.height - self.originalTopInset) animated:YES];
+self.wasTriggeredByUser = NO;
+}
+else
+self.wasTriggeredByUser = YES;
+
+break;
+case SVPullToRefreshPositionBottom:
+
+if((fequalzero(self.scrollView.contentOffset.y) && self.scrollView.contentSize.height < self.scrollView.bounds.size.height)
+|| fequal(self.scrollView.contentOffset.y, self.scrollView.contentSize.height - self.scrollView.bounds.size.height)) {
+[self.scrollView setContentOffset:(CGPoint){.y = MAX(self.scrollView.contentSize.height - self.scrollView.bounds.size.height, 0.0f) + self.frame.size.height} animated:YES];
+self.wasTriggeredByUser = NO;
+}
+else
+self.wasTriggeredByUser = YES;
+
+break;
+}
+self.state = SVPullToRefreshStateLoading;
+}
+```
+
+```objc
+#import "UIScrollView+SVInfiniteScrolling.h"
+id customView = [self.viewForState objectAtIndex:newState];
+BOOL hasCustomView = [customView isKindOfClass:[UIView class]];
+
+if(hasCustomView) {
+[self addSubview:customView];
+CGRect viewBounds = [customView bounds];
+CGPoint origin = CGPointMake(roundf((self.bounds.size.width-viewBounds.size.width)/2), roundf((self.bounds.size.height-viewBounds.size.height)/2));
+[customView setFrame:CGRectMake(origin.x, origin.y, viewBounds.size.width, viewBounds.size.height)];
+//bug 解决设置了自定义View SVInfiniteScrollingStateStopped状态后的 菊花不消失的问题
+switch (newState) {
+case SVInfiniteScrollingStateStopped:
 [self.activityIndicatorView stopAnimating];
-}];
-self.tableViewDataSource = demoDataSource;
+break;
+}
+}
+```
+
+原有的下拉刷新箭头不精细，比较喜欢简书那样的下拉刷新，所有就画过了一个箭头
+
+```objc
+#pragma mark - SVPullToRefreshArrow
+
+@implementation SVPullToRefreshArrow
+@synthesize arrowColor;
+
+- (UIColor *)arrowColor {
+if (arrowColor) return arrowColor;
+return [UIColor lightGrayColor]; // default Color
+}
+
+- (void)drawRect:(CGRect)rect {
+CGContextRef c = UIGraphicsGetCurrentContext();
+CGContextMoveToPoint(c, 11, 20);
+CGContextAddLineToPoint(c, 11, 35);
+CGContextMoveToPoint(c, 6, 30);
+CGContextAddLineToPoint(c, 11, 35);
+CGContextAddLineToPoint(c, 16, 30);
+CGContextSetLineWidth(c, 0.8);
+CGContextSetStrokeColorWithColor(c, self.arrowColor.CGColor);
+CGContextSetLineCap(c, kCGLineCapRound);
+CGContextDrawPath(c, kCGPathStroke);
+}
+
+@end
+```
+
+使用层面很简单, 后续如果想换`MJ`也可以改`CXTableView`的实现，外界调用不用动
+
+```objc
+- (void)pullDownToRefresh {
+//模拟网络请求
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+[self.demoDataSource loadData];
+[self.tableView setLoadCompleted:NO];
+[self.tableView stopRefreshingAnimation];
+[self.tableView reloadData];
+});
+}
+
+
+- (void)pullUpToRefresh {
+//模拟网络请求
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+[self.demoDataSource loadMoreData];
+[self.tableView setLoadCompleted:YES];
+[self.tableView triggerRefreshing];
+[self.tableView reloadData];
+});
+}
+```
+
+* 空白页的封装
+
+主要是针对`CXTableView`实现了一个`CXTableView+CXEmpty`分类
+主要思路是针对`CXTableView` 刷新数据方法进行交换
+
+```objc
++ (void)load {
+static dispatch_once_t onceToken;
+dispatch_once(&onceToken, ^{
+[[self class] cx_swizzleClassMethodWithOriginalSel:@selector(reloadData) newSel:@selector(cx_reloadData)];
+[[self class] cx_swizzleClassMethodWithOriginalSel:@selector(insertSections:withRowAnimation:) newSel:@selector(cx_insertSections:withRowAnimation:)];
+[[self class] cx_swizzleClassMethodWithOriginalSel:@selector(insertRowsAtIndexPaths:withRowAnimation:) newSel:@selector(cx_insertRowsAtIndexPaths:withRowAnimation:)];
+[[self class] cx_swizzleClassMethodWithOriginalSel:@selector(deleteSections:withRowAnimation:) newSel:@selector(cx_deleteSections:withRowAnimation:)];
+[[self class] cx_swizzleClassMethodWithOriginalSel:@selector(deleteRowsAtIndexPaths:withRowAnimation:) newSel:@selector(cx_deleteRowsAtIndexPaths:withRowAnimation:)];
+});
+}
+
+- (void)cx_reloadData {
+[self cx_reloadData];
+//忽略第一次加载
+if (![self isInitFinish]) {
+[self setIsInitFinish:YES];
+return;
+}
+[self checkData];
+}
+
+- (void)checkData {
+dispatch_async(dispatch_get_main_queue(), ^{
+if (!self.emptyView) {
+return;
+}
+NSInteger sections = 1;
+if ([self.cxdataSource respondsToSelector:@selector(numberOfSectionsInTableView:)]) {
+sections = [self.cxdataSource numberOfSectionsInTableView:self];
+}
+if (sections == 0){
+[self.emptyView removeFromSuperview];
+[self addSubview:self.emptyView];
+}else {
+if (sections == 1){
+NSInteger rowNumber = [self.cxdataSource tableView:self numberOfRowsInSection:0];
+if (rowNumber == 0){
+[self.emptyView removeFromSuperview];
+[self addSubview:self.emptyView];
+} else {
+[self.emptyView removeFromSuperview];
+}
+}else {
+[self.emptyView removeFromSuperview];
+}
+}
+});
+}
+
+static NSString *const CXRegisterEmptyViewKey = @"CXRegisterEmptyViewKey";
+static NSString *const CXTableViewPropertyInitFinishKey = @"CXTableViewPropertyInitFinishKey";
+
+- (UIView *)emptyView {
+if ([self.cxdelegate respondsToSelector:@selector(registerEmptyView)]) {
+if (!objc_getAssociatedObject(self, &CXRegisterEmptyViewKey)) {
+objc_setAssociatedObject(self, &CXRegisterEmptyViewKey, [self.cxdelegate registerEmptyView], OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+return objc_getAssociatedObject(self, &CXRegisterEmptyViewKey);
+}
+return nil;
+}
+
+- (void)setIsInitFinish:(BOOL)finish{
+objc_setAssociatedObject(self, &CXTableViewPropertyInitFinishKey, @(finish), OBJC_ASSOCIATION_ASSIGN);
+}
+
+- (BOOL)isInitFinish{
+id obj = objc_getAssociatedObject(self, &CXTableViewPropertyInitFinishKey);
+return [obj boolValue];
 }
 
 ```
 
-到目前为止，我们实现了对`UITableView`以及相关协议、方法的封装，使它更容易使用，避免了很多重复、无意义的代码。
-M 只关心数据
-C 只负责调度
-V 只负责展示数据
+空白页的配置完全交给了外界,只要实现代理即可,这里还做了一个首次拿数据的时候不检测空白页，因为`tableView`在一开始不配置数据的时候，就会主动触发一次`reloadData`方法
 
 demo地址：[轻量级UITableView的封装](https://github.com/caixiang305621856/CXTableView)
 
-参照链接： [如何写好一个 UITableView](https://github.com/bestswifter/blog/blob/master/articles/ios-tableview.md) 
-
-
-
-
-
-
-
-
-
-
+参照链接： [如何写好一个 UITableView](https://github.com/bestswifter/blog/blob/master/articles/ios-tableview.md)
 

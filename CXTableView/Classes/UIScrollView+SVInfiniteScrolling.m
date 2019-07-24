@@ -267,6 +267,7 @@ UIEdgeInsets scrollViewOriginalContentInsets;
         CGRect viewBounds = [customView bounds];
         CGPoint origin = CGPointMake(roundf((self.bounds.size.width-viewBounds.size.width)/2), roundf((self.bounds.size.height-viewBounds.size.height)/2));
         [customView setFrame:CGRectMake(origin.x, origin.y, viewBounds.size.width, viewBounds.size.height)];
+        //bug 解决设置了自定义View SVInfiniteScrollingStateStopped状态后的 菊花不消失的问题
         switch (newState) {
             case SVInfiniteScrollingStateStopped:
                 [self.activityIndicatorView stopAnimating];
