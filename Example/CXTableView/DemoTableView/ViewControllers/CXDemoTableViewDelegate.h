@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "CXTableViewDelegateProtocol.h"
 #import "CXTableView.h"
+#import "CXDemoDataSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CXDemoTableViewDelegate : NSObject<CXTableViewDelegateProtocol>
 
 @property (weak, nonatomic) CXTableView*tableView;
-
-@property (copy, nonatomic) void(^reloadData)(void);
+@property (weak, nonatomic) CXDemoDataSource *demoDataSource;
 
 @end
 

@@ -53,6 +53,29 @@
     self.sections = [NSMutableArray arrayWithObject:sectionModel];
 }
 
+- (void)loadMoreData {
+    NSArray *cellIdentifers = @[NSStringFromClass([CXDemo1TableViewCell class]),NSStringFromClass([CXDemoTableViewCell class])];
+    id<ContentViewAdapterProtocol> demoAdapter;
+    for (NSInteger i = 38; i < 80; i ++) {
+        if (i%5 > 2) {
+            CXDemoItem *item = [CXDemoItem new];
+            item.cellIdentifier = cellIdentifers[i%2];
+            item.rowHeight = 150;
+            item.name = item.cellIdentifier;
+            item.subName = [NSString stringWithFormat:@"%zd",i];
+            demoAdapter = [[CXDemoAdapter alloc] initWithData:item];
+        } else{
+            CXDemo1Item *item = [CXDemo1Item new];
+            item.identifier = cellIdentifers[i%2];
+            item.rowHeight = 70;
+            item.contentName = item.identifier;
+            item.titleName = [NSString stringWithFormat:@"%zd",i];
+            demoAdapter = [[CXDemoAdapter alloc] initWithData:item];
+        }
+        [self addItem:demoAdapter section:0];
+    }
+}
+
 #pragma mark - CXTableViewDataSourceProtocol
 //注册cell类型
 - (UITableViewCell *)registerTableView:(UITableView*)tableView cellClassForObject:(id<ContentViewAdapterProtocol>)object {

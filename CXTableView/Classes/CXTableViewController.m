@@ -17,21 +17,38 @@
 - (instancetype)initWithStyle:(UITableViewStyle)style {
     self = [super init];
     if(self) {
-        [self configDataSource];
+        [self configCXDataSource];
     }
     return self;
 }
 
-- (void)configDataSource {
-    //子类实现
+- (void)configCXDataSource {
+    /*
+     子类实现
+     self.tableView.cxdataSource = self.tableViewDataSource的子类
+     */
     @throw [NSException exceptionWithName:@"Cann't use this method"
                                    reason:@"You can only call this method in subclass"
                                  userInfo:nil];
 }
 
+- (void)configCXDelegate {
+    /*
+     子类实现
+     若不实现默认 self.tableView.cxdelegate = self;
+     */
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self createTableView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.tableView.autoPullDownToRefresh && self.tableView.isNeedPullDownToRefresh) {
+        [self.tableView triggerPullToRefresh];
+    }
 }
 
 - (void)createTableView {
@@ -40,6 +57,7 @@
         self.tableView.contentInset = UIEdgeInsetsMake([UIApplication sharedApplication].statusBarFrame.size.height + 44.0f, 0, 0, 0);
         self.tableView.cxdelegate = self;
         self.tableView.cxdataSource = self.tableViewDataSource;
+        [self configCXDelegate];
         self.tableView.tableFooterView = [UIView new];
         [self.view addSubview:self.tableView];
     }

@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CXDemoDataSource : CXTableViewDataSource
 
 - (void)loadData;
+- (void)loadMoreData;
 
 @end
 

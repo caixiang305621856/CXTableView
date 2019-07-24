@@ -26,6 +26,8 @@
         self.estimatedSectionFooterHeight = 0;
         self.isNeedPullDownToRefresh = NO;
         self.isNeedPullUpToRefresh = NO;
+        self.autoPullDownToRefresh = NO;
+        self.loadCompleted = YES;
 #ifdef __IPHONE_11_0
         if (@available(iOS 11.0, *)) {
             [self setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
@@ -69,6 +71,26 @@
     }
 }
 
+- (void)setLoadCompleted:(BOOL)loadCompleted {
+    if (_loadCompleted == loadCompleted || self.isNeedPullUpToRefresh == NO) {
+        return;
+    }
+    _loadCompleted = loadCompleted;
+    if (loadCompleted) {
+        UIView *bottomView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 60)];
+        NSString *noMoreText = @"没有更多数据了";
+        UIFont *font = [UIFont systemFontOfSize:14];
+        UILabel *desLabel = [[UILabel alloc]initWithFrame:bottomView.bounds];
+        desLabel.textColor = UIColorFromRGBA(0xA0A0A0,1);
+        desLabel.textAlignment = NSTextAlignmentCenter;
+        desLabel.font = font;
+        desLabel.text = noMoreText;
+        [bottomView addSubview:desLabel];
+        [self.infiniteScrollingView setCustomView:bottomView forState:SVInfiniteScrollingStateStopped];
+    }
+    self.infiniteScrollingView.enabled = !loadCompleted;
+}
+
 - (void)stopRefreshingAnimation {
     [self.pullToRefreshView stopAnimating];
     [self.infiniteScrollingView stopAnimating];
@@ -77,6 +99,7 @@
 - (void)triggerRefreshing {
     [self.infiniteScrollingView stopAnimating];
 }
+
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -103,23 +126,22 @@
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
-    //给cell 绑定数据
     id<CXTableViewDataSourceProtocol> dataSource = (id<CXTableViewDataSourceProtocol>)self.dataSource;
     id object = [dataSource tableView:tableView objectForRowAtIndexPath:indexPath];
+    //给cell 绑定数据
     [(CXBaseTableViewCell *)cell setItem:object];
-    //因为CXTableViewDataSourceProtocol 是继承UITableViewDelegate 的 所有这里可以做一层中转
     if ([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayCell:forRowAtIndexPath:)]) {
         [self.cxdelegate tableView:tableView willDisplayCell:cell forRowAtIndexPath:indexPath];
     }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0) {
+- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
     if([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayHeaderView:forSection:)]) {
         [self.cxdelegate tableView:tableView willDisplayHeaderView:view forSection:section];
     }
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section NS_AVAILABLE_IOS(6_0) {
+- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
     if([self.cxdelegate respondsToSelector:@selector(tableView:willDisplayFooterView:forSection:)]) {
         [self.cxdelegate tableView:tableView willDisplayFooterView:view forSection:section];
     }
@@ -133,6 +155,13 @@
         _cxdataSource = cxdataSource;
         self.dataSource = cxdataSource;
     }
+}
+
+UIKIT_STATIC_INLINE UIColor *UIColorFromRGBA(uint32_t rgbValue, CGFloat a) {
+    return [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0f
+                           green:((float)((rgbValue & 0xFF00) >> 8))/255.0f
+                            blue:((float)(rgbValue & 0xFF))/255.0f
+                           alpha:a];
 }
 
 @end

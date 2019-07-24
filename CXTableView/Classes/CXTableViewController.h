@@ -14,7 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol CXTableViewControllerDelegate <NSObject>
 
 @required
-- (void)configDataSource;
+- (void)configCXDataSource;
+@optional
+- (void)configCXDelegate;
 @end
 
 @interface CXTableViewController : UIViewController<CXTableViewDelegateProtocol,CXTableViewControllerDelegate>

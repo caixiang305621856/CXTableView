@@ -225,10 +225,10 @@
 			children = (
 				5A9DBE0C22E374B70070B2A9 /* CXDemo1ViewController.h */,
 				5A9DBE0D22E374B70070B2A9 /* CXDemo1ViewController.m */,
-				5A9DBDF722E333CC0070B2A9 /* CXDemoViewController.h */,
-				5A9DBDF822E333CC0070B2A9 /* CXDemoViewController.m */,
 				5AFFA90C22E6E61100938904 /* CXDemoTableViewDelegate.h */,
 				5AFFA90D22E6E61200938904 /* CXDemoTableViewDelegate.m */,
+				5A9DBDF722E333CC0070B2A9 /* CXDemoViewController.h */,
+				5A9DBDF822E333CC0070B2A9 /* CXDemoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

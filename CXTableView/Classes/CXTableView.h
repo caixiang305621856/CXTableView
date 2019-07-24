@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CXTableViewDelegateProtocol.h"
 #import "CXTableViewDataSourceProtocol.h"
-#import "SVPullToRefresh.h"
 #import "CXTableViewDataSource.h"
+#import "SVPullToRefresh.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,18 +21,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) BOOL isNeedPullDownToRefresh;
 @property (nonatomic, assign) BOOL isNeedPullUpToRefresh;
+@property (assign, nonatomic) BOOL autoPullDownToRefresh;
+@property (assign, nonatomic) BOOL loadCompleted;
 
-/**
-停止所有刷新动画
- */
 - (void)stopRefreshingAnimation;
-
-/**
- 停止上拉刷新动画
- */
 - (void)triggerRefreshing;
-
-- (void)loadCompelet;
 
 @end
 

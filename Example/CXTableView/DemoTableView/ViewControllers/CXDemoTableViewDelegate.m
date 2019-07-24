@@ -7,9 +7,9 @@
 //
 
 #import "CXDemoTableViewDelegate.h"
-#import "CXDemoAdapter.h"
 #import "CXEmptyView.h"
 #import "CXDemoTableViewCell.h"
+#import "CXDemo1TableViewCell.h"
 
 @implementation CXDemoTableViewDelegate
 
@@ -17,21 +17,30 @@
 - (UIView *)registerEmptyView {
     CXEmptyView *emptyView = [[[NSBundle mainBundle] loadNibNamed:@"CXEmptyView" owner:self options:nil] firstObject];
     emptyView.frame = [UIScreen mainScreen].bounds;
-    emptyView.reloadData = self.reloadData;
+    emptyView.reloadData = ^{
+        [self.tableView triggerPullToRefresh];
+    };
     return emptyView;
 }
 
 - (void)pullDownToRefresh {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //模拟网络请求
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.demoDataSource loadData];
+        [self.tableView setLoadCompleted:NO];
         [self.tableView stopRefreshingAnimation];
-        !self.reloadData?:self.reloadData();
+        [self.tableView reloadData];
     });
 }
 
 
 - (void)pullUpToRefresh {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    //模拟网络请求
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.demoDataSource loadMoreData];
+        [self.tableView setLoadCompleted:YES];
         [self.tableView triggerRefreshing];
+        [self.tableView reloadData];
     });
 }
 

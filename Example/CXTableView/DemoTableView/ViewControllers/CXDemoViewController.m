@@ -22,37 +22,32 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.tableView.cxdelegate = self.demoTableViewDelegate;
-    self.tableView.isNeedPullUpToRefresh = YES;
-    self.tableView.isNeedPullDownToRefresh = YES;
     self.navigationItem.title = @"CXTableView";
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"数据加载失败" style:UIBarButtonItemStylePlain target:self action:@selector(failClick)];
     [self.navigationItem setRightBarButtonItem:item];
+    self.tableView.isNeedPullUpToRefresh = YES;
+    self.tableView.isNeedPullDownToRefresh = YES;
+    self.tableView.autoPullDownToRefresh = YES;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.tableView triggerPullToRefresh];
+#pragma mark - CXTableViewControllerDelegate
+- (void)configCXDataSource {
+    //设置数据源
+    self.tableViewDataSource = self.demoDataSource;
 }
 
+- (void)configCXDelegate {
+      //设置代理
+    self.tableView.cxdelegate = self.demoTableViewDelegate;
+}
+
+#pragma mark - action
 - (void)failClick {
     [self.tableViewDataSource reamoveAllItems];
     [self.tableView reloadData];
 }
 
-#pragma mark - CXTableViewControllerDelegate
-- (void)configDataSource {
-    //设置数据源代理
-    self.tableViewDataSource = self.demoDataSource;
-}
-
-- (void)loadData {
-    [self.demoDataSource loadData];
-    CXTableViewSectionModel *sectionModel =  self.demoDataSource.sections[0];
-    NSLog(@"🚀%@",sectionModel.items);
-    [self.tableView reloadData];
-}
-
+#pragma mark - set&get
 - (CXDemoDataSource *)demoDataSource{
     if (!_demoDataSource) {
         _demoDataSource = [[CXDemoDataSource alloc] init];
@@ -64,10 +59,7 @@
     if (!_demoTableViewDelegate) {
         _demoTableViewDelegate = [[CXDemoTableViewDelegate alloc] init];
         _demoTableViewDelegate.tableView = self.tableView;
-        __weak typeof(self)weakSelf = self;
-        _demoTableViewDelegate.reloadData = ^{
-            [weakSelf loadData];
-        };
+        _demoTableViewDelegate.demoDataSource = self.demoDataSource;
     }
     return _demoTableViewDelegate;
 }
