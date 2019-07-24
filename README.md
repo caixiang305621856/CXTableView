@@ -9,6 +9,18 @@
 ## 效果预览
 ![CXTableView.gif](https://upload-images.jianshu.io/upload_images/1767433-bb53ccfd3ea336e1.gif?imageMogr2/auto-orient/strip)
 
+## Installation
+
+CXTableView is available through [CocoaPods](https://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'CXTableView'
+```
+## License
+
+CXTableView is available under the MIT license. See the LICENSE file for more info.
+
 ## 问题阐述
 
 * VC过于臃肿 业务稍微复杂点就代码量`1000+`
