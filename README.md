@@ -6,6 +6,9 @@
 
 # 项目中`MVC`架构存在的问题
 
+## 效果预览
+![CXTableView.gif](https://upload-images.jianshu.io/upload_images/1767433-bb53ccfd3ea336e1.gif?imageMogr2/auto-orient/strip)
+
 ## 问题阐述
 
 * VC过于臃肿 业务稍微复杂点就代码量`1000+`
