@@ -24,6 +24,7 @@
 		5A9DBE0E22E374B70070B2A9 /* CXDemo1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A9DBE0D22E374B70070B2A9 /* CXDemo1ViewController.m */; };
 		5AEA76D322E6FF290067604F /* UIScrollView+SVPullToRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA76CE22E6FF280067604F /* UIScrollView+SVPullToRefresh.m */; };
 		5AEA76D422E6FF290067604F /* UIScrollView+SVInfiniteScrolling.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA76CF22E6FF280067604F /* UIScrollView+SVInfiniteScrolling.m */; };
+		5AEA76FD22E9AC870067604F /* CXResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AEA76FC22E9AC870067604F /* CXResponder.m */; };
 		5AFFA90122E6AAF300938904 /* CXTableView+CXEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFFA90022E6AAF300938904 /* CXTableView+CXEmpty.m */; };
 		5AFFA90422E6DA6700938904 /* CXEmptyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5AFFA90322E6DA6700938904 /* CXEmptyView.m */; };
 		5AFFA90622E6DA7400938904 /* CXEmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5AFFA90522E6DA7400938904 /* CXEmptyView.xib */; };
@@ -96,6 +97,8 @@
 		5AEA76D022E6FF280067604F /* SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVPullToRefresh.h; sourceTree = "<group>"; };
 		5AEA76D122E6FF280067604F /* UIScrollView+SVInfiniteScrolling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVInfiniteScrolling.h"; sourceTree = "<group>"; };
 		5AEA76D222E6FF290067604F /* UIScrollView+SVPullToRefresh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+SVPullToRefresh.h"; sourceTree = "<group>"; };
+		5AEA76FB22E9AC870067604F /* CXResponder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXResponder.h; sourceTree = "<group>"; };
+		5AEA76FC22E9AC870067604F /* CXResponder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CXResponder.m; sourceTree = "<group>"; };
 		5AFFA8FF22E6AAF300938904 /* CXTableView+CXEmpty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CXTableView+CXEmpty.h"; sourceTree = "<group>"; };
 		5AFFA90022E6AAF300938904 /* CXTableView+CXEmpty.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "CXTableView+CXEmpty.m"; sourceTree = "<group>"; };
 		5AFFA90222E6DA6700938904 /* CXEmptyView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CXEmptyView.h; sourceTree = "<group>"; };
@@ -254,6 +257,8 @@
 				5A10B2D222E3FD47006DD07A /* CXDemo1Item.m */,
 				5A9DBDE722E310E20070B2A9 /* CXDemoDataSource.h */,
 				5A9DBDE822E310E20070B2A9 /* CXDemoDataSource.m */,
+				5AEA76FB22E9AC870067604F /* CXResponder.h */,
+				5AEA76FC22E9AC870067604F /* CXResponder.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -542,6 +547,7 @@
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				5A9DBDE622E310B80070B2A9 /* CXDemoTableViewCell.m in Sources */,
 				5A10B2D022E3F84F006DD07A /* CXDemoAdapter.m in Sources */,
+				5AEA76FD22E9AC870067604F /* CXResponder.m in Sources */,
 				5AFFA90422E6DA6700938904 /* CXEmptyView.m in Sources */,
 				5A9DBDEF22E317400070B2A9 /* CXDemo1TableViewCell.m in Sources */,
 				5A9DBE0B22E33A930070B2A9 /* CXBaseTableViewCell.m in Sources */,
