@@ -171,7 +171,6 @@ static char UIScrollViewPullToRefreshView;
         self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         self.state = SVPullToRefreshStateStopped;
         self.showsDateLabel = NO;
-        
         self.titles = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Pull to refresh...",),
                        NSLocalizedString(@"Release to refresh...",),
                        NSLocalizedString(@"Loading...",),
@@ -579,8 +578,11 @@ static char UIScrollViewPullToRefreshView;
         case SVPullToRefreshPositionTop:
             //bug 修复 设置了偏移量后 不能自动刷新的问题
             if(fequalzero(self.scrollView.contentOffset.y) + self.originalTopInset) {
-                [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, - self.frame.size.height - self.originalTopInset) animated:YES];
-                self.wasTriggeredByUser = NO;
+            //xcode 11 编译不主动刷新时不下移
+            [UIView animateWithDuration:0.25 animations:^{
+                                     [self.scrollView setContentOffset:CGPointMake(self.scrollView.contentOffset.x, - self.frame.size.height - self.originalTopInset)];
+                                 }];
+            self.wasTriggeredByUser = NO;
             }
             else
                 self.wasTriggeredByUser = YES;
@@ -639,7 +641,7 @@ static char UIScrollViewPullToRefreshView;
         case SVPullToRefreshStateLoading:
             [self setScrollViewContentInsetForLoading];
             if(previousState == SVPullToRefreshStateTriggered && pullToRefreshActionHandler){
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                     self->pullToRefreshActionHandler();
                 });
             }

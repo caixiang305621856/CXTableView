@@ -25,7 +25,7 @@
 
 - (void)pullDownToRefresh {
     //模拟网络请求
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.demoDataSource loadData];
         [self.tableView setLoadCompleted:NO];
         [self.tableView stopRefreshingAnimation];
@@ -36,7 +36,7 @@
 
 - (void)pullUpToRefresh {
     //模拟网络请求
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.demoDataSource loadMoreData];
         [self.tableView setLoadCompleted:YES];
         [self.tableView triggerRefreshing];
